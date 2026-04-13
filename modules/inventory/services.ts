@@ -120,5 +120,33 @@ export const inventoryService = {
       lowRotation,
       products: productsWithStats,
     };
+  },
+
+  async getDetailedSales() {
+    return await db.select({
+      id: sales.id,
+      productName: products.name,
+      category: products.category,
+      quantity: sales.quantity,
+      total: sales.total,
+      timestamp: sales.timestamp,
+    })
+    .from(sales)
+    .leftJoin(products, eq(sales.productId, products.id))
+    .orderBy(desc(sales.timestamp));
+  },
+
+  async getDetailedPurchases() {
+    return await db.select({
+      id: purchases.id,
+      productName: products.name,
+      category: products.category,
+      quantity: purchases.quantity,
+      cost: purchases.cost,
+      timestamp: purchases.timestamp,
+    })
+    .from(purchases)
+    .leftJoin(products, eq(purchases.productId, products.id))
+    .orderBy(desc(purchases.timestamp));
   }
 }

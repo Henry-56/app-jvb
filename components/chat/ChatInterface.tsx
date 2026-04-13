@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader2 } from 'lucide-react';
+import { Send, Bot, User, Loader2, FileText } from 'lucide-react';
 import styles from './Chat.module.css';
+import { exportMessageToPDF } from '@/modules/ai/pdf-export';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -89,6 +90,15 @@ export default function ChatInterface() {
             </div>
             <div className={styles.messageContent}>
               {m.content}
+              {m.role === 'assistant' && (
+                <button 
+                  onClick={() => exportMessageToPDF(m.content)}
+                  className={styles.pdfBtn}
+                  title="Exportar reporte a PDF"
+                >
+                  <FileText size={14} /> PDF
+                </button>
+              )}
             </div>
           </div>
         ))}
