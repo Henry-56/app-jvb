@@ -1,0 +1,202 @@
+.container {
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.botInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botIcon {
+  color: var(--primary);
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.status {
+  font-size: 0.75rem;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  opacity: 0.8;
+}
+
+.status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--success);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--success);
+}
+
+.messages {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 100%);
+}
+
+.messageWrapper {
+  display: flex;
+  gap: 1rem;
+  max-width: 85%;
+  animation: messageSlide 0.3s ease-out;
+}
+
+@keyframes messageSlide {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.userRow {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.assistantRow {
+  align-self: flex-start;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.userRow .avatar {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: white;
+}
+
+.assistantRow .avatar {
+  background: linear-gradient(135deg, var(--secondary), #f472b6);
+  color: white;
+}
+
+.messageContent {
+  padding: 0.875rem 1.125rem;
+  border-radius: 16px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.userRow .messageContent {
+  background: var(--primary);
+  color: white;
+  border-bottom-right-radius: 2px;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+}
+
+.assistantRow .messageContent {
+  background: rgba(30, 41, 59, 0.7);
+  border-bottom-left-radius: 2px;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  color: #e2e8f0;
+}
+
+.quickActions {
+  padding: 0 1.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.actionBtn {
+  background: rgba(148, 163, 184, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #94a3b8;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.actionBtn:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.inputArea {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  display: flex;
+  gap: 1rem;
+}
+
+.input {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: var(--primary);
+}
+
+.sendBtn {
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.sendBtn:hover {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.sendBtn:disabled {
+  background: #475569;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 0.75rem;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

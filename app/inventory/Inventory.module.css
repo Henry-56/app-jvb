@@ -1,0 +1,150 @@
+.tableContainer {
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.tableActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.searchBox {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.searchInput {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 10px;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  color: white;
+  outline: none;
+}
+
+.filterBtns {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.primaryBtn, .secondaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.primaryBtn {
+  background: var(--primary);
+  color: white;
+}
+
+.secondaryBtn {
+  background: rgba(148, 163, 184, 0.1);
+  color: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 1rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.tableRow {
+  transition: background 0.2s;
+}
+
+.tableRow:hover {
+  background: rgba(148, 163, 184, 0.05);
+}
+
+.table td {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.05);
+  font-size: 0.9375rem;
+}
+
+.productCell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.productIcon {
+  width: 32px;
+  height: 32px;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoryBadge {
+  background: rgba(148, 163, 184, 0.1);
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.lowStock {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.statusBadgeSuccess, .statusBadgeError {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.statusBadgeSuccess {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.statusBadgeError {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.actionBtn {
+  color: #94a3b8;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.actionBtn:hover {
+  background: rgba(148, 163, 184, 0.1);
+  color: white;
+}
