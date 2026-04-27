@@ -17,13 +17,13 @@ async function seed() {
   if (insertedProducts.length === 0) {
     console.log('No products found. Creating initial products...');
     const productsData = [
-        { name: 'Arroz Costeño 1kg', category: 'Granos', price: 3.50, stock: 45, minStock: 10, expirationDate: '2025-12-01' },
-        { name: 'Leche Gloria Azul', category: 'Lácteos', price: 4.20, stock: 15, minStock: 12, expirationDate: '2024-06-15' },
-        { name: 'Aceite Primor 1L', category: 'Abarrotes', price: 11.50, stock: 20, minStock: 5, expirationDate: '2025-08-20' },
-        { name: 'Azúcar Rubia 1kg', category: 'Granos', price: 3.80, stock: 3, minStock: 15, expirationDate: '2026-01-10' },
-        { name: 'Fideos Lavaggi 500g', category: 'Pastas', price: 2.50, stock: 30, minStock: 10, expirationDate: '2025-11-05' },
+        { name: 'Arroz Costeño 1kg', category: 'Granos', price: 3.50, stock: 45, minStock: 10, expirationDate: '2026-12-01' },
+        { name: 'Leche Gloria Azul', category: 'Lácteos', price: 4.20, stock: 15, minStock: 12, expirationDate: '2026-05-15' },
+        { name: 'Aceite Primor 1L', category: 'Abarrotes', price: 11.50, stock: 20, minStock: 5, expirationDate: '2026-08-20' },
+        { name: 'Azúcar Rubia 1kg', category: 'Granos', price: 3.80, stock: 3, minStock: 15, expirationDate: '2027-01-10' },
+        { name: 'Fideos Lavaggi 500g', category: 'Pastas', price: 2.50, stock: 30, minStock: 10, expirationDate: '2026-11-05' },
         { name: 'Detergente Opal 1kg', category: 'Limpieza', price: 8.90, stock: 15, minStock: 5, expirationDate: null },
-        { name: 'Yogurt Laive 1L', category: 'Lácteos', price: 6.50, stock: 8, minStock: 10, expirationDate: '2024-05-20' },
+        { name: 'Yogurt Laive 1L', category: 'Lácteos', price: 6.50, stock: 8, minStock: 10, expirationDate: '2026-05-20' },
     ];
     await db.insert(schema.products).values(productsData);
   }
