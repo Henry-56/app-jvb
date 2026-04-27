@@ -54,6 +54,7 @@ export default function ChatInterface() {
   };
 
   const quickActions = [
+    "¿Qué productos están por vencerse?",
     "¿Qué productos están por agotarse?",
     "¿Qué productos se venden más?",
     "¿Cuánto debo reponer esta semana?",

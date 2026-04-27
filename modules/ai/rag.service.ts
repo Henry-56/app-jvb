@@ -10,6 +10,11 @@ export const aiService = {
       // 1. Get Context (RAG)
       const stats = await inventoryService.getDashboardStats();
       const criticalProducts = stats.products.filter(p => p.stock <= p.minStock);
+      const now = new Date();
+      const next30Days = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+      const expiringSoon = stats.products
+        .filter(p => p.expirationDate && new Date(p.expirationDate) <= next30Days)
+        .sort((a, b) => new Date(a.expirationDate!).getTime() - new Date(b.expirationDate!).getTime());
 
       const context = `
       Eres el asistente inteligente "AbarrotesAI". Tu objetivo es ayudar al dueño de la tienda con datos precisos y accionables analizando el inventario y las VENTAS de los últimos 30 días.
@@ -21,6 +26,11 @@ export const aiService = {
       STOCK CRÍTICO (Reponer ya):
       ${criticalProducts.map(p => `- **${p.name}**: Quedan ${p.stock} (Reponer ${Math.ceil(p.weeklyDemand * 2)} und. para 2 semanas)`).join('\n')}
       
+      PRÓXIMOS A VENCER (Próximos 30 días):
+      ${expiringSoon.length > 0 
+        ? expiringSoon.map(p => `- **${p.name}**: Vence el ${new Date(p.expirationDate!).toLocaleDateString('es-ES')} (Stock: ${p.stock})`).join('\n')
+        : 'No hay productos próximos a vencer en los siguientes 30 días.'}
+
       TENDENCIAS DE VENTAS (Últimos 30 días):
       - **Más Vendidos**: ${stats.topSellers.map(p => `${p.name} (${p.totalSold} vendidos)`).join(', ')}
       - **Baja Rotación**: ${stats.lowRotation.map(p => `${p.name} (${p.totalSold} vendidos)`).join(', ')}
